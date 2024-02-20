@@ -11,6 +11,7 @@ To install the package:
 ```bash
 pip install fpdf
 pip install pandas
+pip install openpyxl
 ```
 
 ## Imports
