@@ -28,4 +28,12 @@ for filepath in filepaths:
     columns = list(df.columns)
     column_replaced = [item.title().replace("_"," ") for item in columns]
 
+    pdf.set_font(family="Times", size=10,style="B")
+    pdf.set_text_color(0,0,0)
+    pdf.cell(20,8,column_replaced[0],border=1)
+    pdf.cell(50,8,column_replaced[1], border=1)
+    pdf.cell(30,8,column_replaced[2][0:6],border=1)
+    pdf.cell(30,8,column_replaced[3],border=1)
+    pdf.cell(30,8,column_replaced[4],border=1,ln=1)
+    
 pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
