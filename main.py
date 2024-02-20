@@ -10,7 +10,6 @@ filepaths = glob.glob("invoices/*.xlsx")
 
 #Create loop to loop through paths stored in filepaths
 for filepath in filepaths:
-    
    
     pdf = FPDF("P")
     pdf.add_page()
@@ -25,6 +24,7 @@ for filepath in filepaths:
     pdf.cell(50,8,f"Date: {date}",ln=1)
 
     df = pd.read_excel(filepath, sheet_name="Sheet 1")
+    
     columns = list(df.columns)
     column_replaced = [item.title().replace("_"," ") for item in columns]
 
@@ -47,9 +47,9 @@ for filepath in filepaths:
         pdf.cell(30,8,str(row['price_per_unit']),border=1)
         pdf.cell(30,8,str(row['total_price']),border=1, ln=1)
 
-total = df['total_price'].sum()
-pdf.set_font(family="Times", size=10)
-pdf.set_text_color(0,0,0)
-pdf.cell(30,40,f"The total amount due is {total}") 
+    total = df['total_price'].sum()
+    pdf.set_font(family="Times", size=10)
+    pdf.set_text_color(0,0,0)
+    pdf.cell(30,40,f"The total amount due is {total}") 
 
-pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
+    pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
