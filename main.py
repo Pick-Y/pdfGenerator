@@ -47,5 +47,9 @@ for filepath in filepaths:
         pdf.cell(30,8,str(row['price_per_unit']),border=1)
         pdf.cell(30,8,str(row['total_price']),border=1, ln=1)
 
+total = df['total_price'].sum()
+pdf.set_font(family="Times", size=10)
+pdf.set_text_color(0,0,0)
+pdf.cell(30,40,f"The total amount due is {total}") 
 
 pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
