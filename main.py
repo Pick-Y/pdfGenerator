@@ -24,5 +24,8 @@ for filepath in filepaths:
     pdf.set_font('Times', 'B', 16)
     pdf.cell(50,8,f"Date: {date}",ln=1)
 
-    
+    df = pd.read_excel(filepath, sheet_name="Sheet 1")
+    columns = list(df.columns)
+    column_replaced = [item.title().replace("_"," ") for item in columns]
+
 pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
