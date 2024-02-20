@@ -14,5 +14,8 @@ for filepath in filepaths:
    
     pdf = FPDF("P")
     pdf.add_page()
+    #Extract the invoice number
+    filename = Path(filepath).stem
+
 
 pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
