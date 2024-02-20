@@ -16,6 +16,13 @@ for filepath in filepaths:
     pdf.add_page()
     #Extract the invoice number
     filename = Path(filepath).stem
+    invoice_nr, date = filename.split("-")  
 
+    pdf.set_font('Times', 'B', 16)
+    pdf.cell(70,8,f"Invoice number:{invoice_nr}",ln=1)
 
+    pdf.set_font('Times', 'B', 16)
+    pdf.cell(50,8,f"Date: {date}",ln=1)
+
+    
 pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
