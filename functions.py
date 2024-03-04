@@ -24,6 +24,7 @@ class Pdf_invoice ():
         self.invoice_number = invNumber
         self.date = invDate
         self.path = filePath
+        self.df = pd.read_excel(self.path, sheet_name="Sheet 1")
     
     def generateHeader(self):
         self.pdf.add_page()
