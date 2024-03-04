@@ -13,12 +13,15 @@ filepaths = glob.glob("invoices/*.xlsx")
 
 for filepath in filepaths:
    
-    
      filename = Path(filepath).stem
     
      invoice_nr, date = filename.split("-")  
      
-     pdf = generatePdfHeader(invoice_nr,date)
+     pdf = Pdf_invoice(invoice_nr,date,filepath)
+     
+     pdf.generateHeader()
+
+   
 
      
 
@@ -51,4 +54,4 @@ for filepath in filepaths:
 #     pdf.set_text_color(0,0,0)
 #     pdf.cell(30,40,f"The total amount due is {total}") 
 
-     pdf.output(f'pdfs/invoice-{invoice_nr}.pdf', 'F')
+     pdf.pdf_output()
