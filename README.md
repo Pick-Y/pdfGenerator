@@ -4,15 +4,7 @@ This application generates pdf files from Excel spreadsheets by using fpdf and p
 
 ## Package Installation
 
-The App uses the fpdf and pandas modules.
-
-To install the package:
-
-```bash
-pip install fpdf
-pip install pandas
-pip install openpyxl
-```
+Check the requirements.in file for packages to be installed
 
 ## Imports
 
